@@ -41,40 +41,30 @@ const teamMembers = [
 
 ];
 
-let divElem = document.querySelector('ul');
-//console.log(divElem);
+// Seleziono l'elemento con id row
+let rowElem = document.getElementById('row');
+//console.log(rowElem);
 
 // Stampo in console ogni oggetto e i dati conenuti in esso
 for (let i = 0; i < teamMembers.length; i++) {
 
-    //console.log(teamMembers[i]);
+    //console.log(teamMembers[i].name);
+    //console.log(teamMembers[i].role);
+    //console.log(teamMembers[i].img);
 
-    for (let key in teamMembers[i]) {
-        
-        //console.log(teamMembers[i][key]);
-        
-        let liElem = document.createElement('li');
+    let cardToInsert = `
+    <div class="col col-6 col-md-4">
+        <div class="card">
+            <img src="./assets/img/${teamMembers[i].img}" class="card-img-top" alt="">
+            <div class="card-body">
+                <div class="card-title">${teamMembers[i].name}</div>
+                <div class="card-text">${teamMembers[i].role}</div>
+            </div>
+        </div>
+    </div>
+    `;
 
-        // trasformo l'attributo img in un percorso di file
-        if (key == 'img') {
-            
-            let tempVar = `
-            <img src="./assets/img/${teamMembers[i][key]}" alt="">
-            `;
-            liElem.innerHTML = tempVar;
-            
-        } else {
-            
-            liElem.innerHTML = teamMembers[i][key];
-            
-        }
-
-        //console.log(teamMembers[i][key]);
-        //console.log(liElem);
-        divElem.appendChild(liElem);
-
-    }
+    rowElem.innerHTML += cardToInsert;
 
 }
-
 
