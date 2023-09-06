@@ -71,13 +71,15 @@ for (let i = 0; i < teamMembers.length; i++) {
 }
 
 // Seleziono i vari elementi del form
-let btnInsert = document.getElementById('btnInsert');
 let inputName = document.getElementById('inputName');
 let inputLastName = document.getElementById('inputLastName');
 let inputRole = document.getElementById('inputRole');
+let btnInsert = document.getElementById('btnInsert');
+let btnRemove = document.getElementById('btnRemove');
 // Inizializzo un contatore per le immagini random
 let contatorePicsum = 1;
 
+// Creo event listener per aggiungere membro
 btnInsert.addEventListener('click', function () {
 
     let inputNameValue = inputName.value;
@@ -86,7 +88,7 @@ btnInsert.addEventListener('click', function () {
 
     if (inputNameValue == '' || inputRoleValue == '' || inputLastNameValue == '') {
 
-        alert('Campo "Nome" oppure "Cognome" oppure "Ruolo" vuoto');
+        alert('Tutti i campi devono essere compilati');
 
     } else {
 
@@ -124,3 +126,13 @@ btnInsert.addEventListener('click', function () {
 
 })
 
+// Creo event listener per l'ultimo membro
+btnRemove.addEventListener('click', function () {
+
+    //console.log(rowElem.lastElementChild);
+    rowElem.lastElementChild.remove();
+
+    teamMembers.pop();
+    console.log(teamMembers);
+
+})
