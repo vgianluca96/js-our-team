@@ -70,3 +70,48 @@ for (let i = 0; i < teamMembers.length; i++) {
 
 }
 
+// Seleziono i vari elementi del form
+let btnInsert = document.getElementById('btnInsert');
+let inputName = document.getElementById('inputName');
+let inputLastName = document.getElementById('inputLastName');
+let inputRole = document.getElementById('inputRole');
+// Inizializzo un contatore per le immagini random
+let contatorePicsum = 1;
+
+btnInsert.addEventListener('click', function () {
+
+    let inputNameValue = inputName.value;
+    let inputLastNameValue = inputLastName.value;
+    let inputRoleValue = inputRole.value;
+
+    if (inputNameValue == '' || inputRoleValue == '' || inputLastNameValue == '') {
+
+        alert('Campo "Nome" oppure "Cognome" oppure "Ruolo" vuoto');
+
+    } else {
+
+        inputNameValue = inputNameValue + ' ' + inputLastNameValue;
+
+        // Creo HTML della card
+        let cardToInsert = `
+        <div class="col">
+            <div class="card text-bg-dark">
+                <img src="https://picsum.photos/400/429?random=${contatorePicsum}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">${inputNameValue}</h5>
+                    <p class="card-text">${inputRoleValue}</p>
+                </div>
+            </div>
+        </div>
+        `;
+
+        // Aggiorno contatore immagini
+        contatorePicsum++;
+
+        // Aggiungo l'HTML della card nell'elemento 'row'
+        rowElem.innerHTML += cardToInsert;
+
+    }
+
+})
+
