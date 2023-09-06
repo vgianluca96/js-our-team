@@ -41,14 +41,24 @@ const teamMembers = [
 
 ];
 
+let divElem = document.querySelector('ul');
+//console.log(divElem);
 
 // Stampo in console ogni oggetto e i dati conenuti in esso
 for (let i = 0; i < teamMembers.length; i++) {
 
-    console.log(teamMembers[i]);
+    //console.log(teamMembers[i]);
 
     for (let key in teamMembers[i]) {
+        
         console.log(teamMembers[i][key]);
+
+        let liElem = document.createElement('li');
+        liElem.innerHTML = teamMembers[i][key];
+        //console.log(liElem);
+        
+        divElem.appendChild(liElem);
+
     }
 
 }
