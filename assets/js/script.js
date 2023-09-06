@@ -51,12 +51,26 @@ for (let i = 0; i < teamMembers.length; i++) {
 
     for (let key in teamMembers[i]) {
         
-        console.log(teamMembers[i][key]);
-
-        let liElem = document.createElement('li');
-        liElem.innerHTML = teamMembers[i][key];
-        //console.log(liElem);
+        //console.log(teamMembers[i][key]);
         
+        let liElem = document.createElement('li');
+
+        // trasformo l'attributo img in un percorso di file
+        if (key == 'img') {
+            
+            let tempVar = `
+            <img src="./assets/img/${teamMembers[i][key]}" alt="">
+            `;
+            liElem.innerHTML = tempVar;
+            
+        } else {
+            
+            liElem.innerHTML = teamMembers[i][key];
+            
+        }
+
+        //console.log(teamMembers[i][key]);
+        //console.log(liElem);
         divElem.appendChild(liElem);
 
     }
