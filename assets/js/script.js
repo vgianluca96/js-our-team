@@ -111,6 +111,15 @@ btnInsert.addEventListener('click', function () {
         // Aggiungo l'HTML della card nell'elemento 'row'
         rowElem.innerHTML += cardToInsert;
 
+        // Creo oggetto membro e lo aggiungo all'array teamMembers
+        newMember = {
+            name: inputNameValue,
+            role: inputRoleValue,
+            img: 'Lorem Picsum'
+        };
+        teamMembers.push(newMember);
+        console.log(teamMembers)
+
     }
 
 })
