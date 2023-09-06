@@ -41,29 +41,31 @@ const teamMembers = [
 
 ];
 
-// Seleziono l'elemento con id row
+// Seleziono l'elemento con id 'row'
 let rowElem = document.getElementById('row');
 //console.log(rowElem);
 
-// Stampo in console ogni oggetto e i dati conenuti in esso
+// Per ogni membro creo una card da stampare in pagina
 for (let i = 0; i < teamMembers.length; i++) {
 
     //console.log(teamMembers[i].name);
     //console.log(teamMembers[i].role);
     //console.log(teamMembers[i].img);
 
+    // Creo HTML della card
     let cardToInsert = `
-    <div class="col col-6 col-md-4">
-        <div class="card">
+    <div class="col">
+        <div class="card text-bg-dark">
             <img src="./assets/img/${teamMembers[i].img}" class="card-img-top" alt="">
             <div class="card-body">
-                <div class="card-title">${teamMembers[i].name}</div>
-                <div class="card-text">${teamMembers[i].role}</div>
+                <h5 class="card-title">${teamMembers[i].name}</h5>
+                <p class="card-text">${teamMembers[i].role}</p>
             </div>
         </div>
     </div>
     `;
 
+    // Aggiungo l'HTML della card nell'elemento 'row'
     rowElem.innerHTML += cardToInsert;
 
 }
